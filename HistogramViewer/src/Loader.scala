@@ -1,3 +1,3 @@
-class Loader {
+object Loader {
 
 }
