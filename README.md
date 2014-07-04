@@ -6,5 +6,5 @@ Create histograms of csv data
 
 Components:
   Main:                     Main method
-  HistogramViewer:          Display
+  Viewer:          Display
   Loader:                   Loading
