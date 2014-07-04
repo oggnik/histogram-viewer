@@ -8,6 +8,7 @@ import java.awt.FlowLayout
 import java.awt.Color
 import java.awt.event.ActionListener
 import javax.swing.JFileChooser
+import model.Loader
 
 object Toolbar {
   val READY = 0
@@ -34,6 +35,8 @@ class Toolbar extends Panel with ActionListener {
       val returnValue = chooser.showOpenDialog(this)
       if (returnValue == JFileChooser.APPROVE_OPTION) {
         println("Opening")
+        val file = chooser.getSelectedFile()
+        val model = Loader.openFile(file)
       }
     }
     setStatus(Toolbar.READY)

@@ -1,5 +1,9 @@
 package model
 
-object Loader {
+import java.io.File
 
+object Loader {
+  def openFile(name: File): Unit = {
+    
+  }
 }
