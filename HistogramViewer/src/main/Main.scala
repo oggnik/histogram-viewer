@@ -1,8 +1,8 @@
 package main
 
-import java.awt._
-import javax.swing._
+
 import view.Viewer
+import javax.swing.SwingUtilities
 
 object Main {
   def main(args: Array[String]) {

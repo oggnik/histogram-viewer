@@ -1,13 +1,13 @@
 package view
 
-import java.awt._
-import javax.swing._
 import java.io.File
+
+import javax.swing.JFrame
 import model.Loader
 
 class Viewer extends JFrame {
   
-  private var loadedData: Array[Array[String]] = null
+  private var loadedData: List[Array[String]] = null
   
   /*
    * Start GUI Creation
@@ -24,5 +24,6 @@ class Viewer extends JFrame {
   
   def loadFile(file: File): Unit = {
     loadedData = Loader.openFile(file)
+    loadedData.foreach(line => println(line.mkString(", ")))
   }
 }
