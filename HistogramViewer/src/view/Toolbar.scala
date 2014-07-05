@@ -15,10 +15,13 @@ object Toolbar {
   val OPENING = 1
 }
 
-class Toolbar extends Panel with ActionListener {
+class Toolbar(viewer: Viewer) extends Panel with ActionListener {
   val chooser = new JFileChooser()
   var status = Toolbar.READY
   
+  /*
+   * Start Gui Creation
+   */
   val load = new JButton("Load")
   val statusLabel = new JLabel("Ready")
   setStatus(Toolbar.READY)
@@ -28,6 +31,9 @@ class Toolbar extends Panel with ActionListener {
   setLayout(new FlowLayout(FlowLayout.LEFT))
   add(load)
   add(statusLabel)
+  /*
+   * End Gui Creation
+   */
   
   def actionPerformed(e: ActionEvent): Unit = {
     if (status == Toolbar.READY) {
@@ -36,12 +42,11 @@ class Toolbar extends Panel with ActionListener {
       if (returnValue == JFileChooser.APPROVE_OPTION) {
         println("Opening")
         val file = chooser.getSelectedFile()
-        val model = Loader.openFile(file)
+        viewer.loadFile(file)
       }
     }
     setStatus(Toolbar.READY)
   }
-  
   
   def setStatus(s: Integer): Unit = {
     status = s
