@@ -11,10 +11,12 @@ import java.awt.Dimension
 class Viewer extends JFrame {
   
   private var loadedData: List[Array[String]] = null
+  private var table: TableView = null
   
   /*
    * Start GUI Creation
    */
+  setTitle("Table View")
   setSize(800, 600)
   setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE)
   private val contentPane = new JPanel()
@@ -34,19 +36,28 @@ class Viewer extends JFrame {
     contentPane.removeAll()
     contentPane.add(toolbar, BorderLayout.NORTH)
     
-    val table = new TableView(loadedData)
-    val scrollPane = new JScrollPane(table)
-    scrollPane.setPreferredSize(new Dimension(600, 500))
-    contentPane.add(scrollPane, BorderLayout.CENTER)
+    table = new TableView(loadedData)
+    val tableScrollPane = new JScrollPane(table)
+    tableScrollPane.setPreferredSize(new Dimension(600, 500))
+    contentPane.add(tableScrollPane, BorderLayout.CENTER)
     revalidate()
     repaint()
   }
   
   def chooseColumn(column: Integer): Unit = {
+    println("Choosing Column: " + column)
     contentPane.removeAll()
     contentPane.add(toolbar, BorderLayout.NORTH)
+    val tableScrollPane = new JScrollPane(table)
+    tableScrollPane.setPreferredSize(new Dimension(600, 500))
+    contentPane.add(tableScrollPane, BorderLayout.CENTER)
     
     val columnData = loadedData.map(line => line(column))
     val histogramPanel = new HistogramView(columnData)
+    val statPanel = new StatView(columnData)
+    
+    contentPane.add(statPanel, BorderLayout.EAST)
+    revalidate()
+    repaint()
   }
 }

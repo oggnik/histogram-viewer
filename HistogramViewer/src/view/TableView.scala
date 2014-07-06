@@ -11,7 +11,6 @@ class TableView(data: List[Array[String]]) extends JPanel {
   /*
    * Start GUI Creation
    */
-  setBackground(Color.GREEN)
   val cells = Array.ofDim[TableCell](dataWidth, dataHeight)
   
   setLayout(new GridLayout(dataHeight, dataWidth))
