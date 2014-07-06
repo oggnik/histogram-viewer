@@ -16,9 +16,11 @@ class TableView(data: List[Array[String]]) extends JPanel {
   
   setLayout(new GridLayout(dataHeight, dataWidth))
   
+  // To prevent linked list style lookups for each line
+  val dataArray = data.toArray
   for (y <- 0 until dataHeight) {
     for (x <- 0 until dataWidth) {
-      val line = data(y)
+      val line = dataArray(y)
       val cellData = line(x)
       val tableCell = new TableCell(cellData)
       cells(x)(y) = tableCell

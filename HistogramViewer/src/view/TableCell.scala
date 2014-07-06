@@ -10,7 +10,7 @@ class TableCell(contents: String) extends JPanel {
   /*
    * Start GUI Creation
    */
-  var label = new JLabel(contents)
+  val label = new JLabel(contents)
   label.setForeground(Color.BLACK)
   setBorder(BorderFactory.createLineBorder(Color.black))
   add(label)
