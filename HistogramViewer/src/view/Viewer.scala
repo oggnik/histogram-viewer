@@ -41,4 +41,12 @@ class Viewer extends JFrame {
     revalidate()
     repaint()
   }
+  
+  def chooseColumn(column: Integer): Unit = {
+    contentPane.removeAll()
+    contentPane.add(toolbar, BorderLayout.NORTH)
+    
+    val columnData = loadedData.map(line => line(column))
+    val histogramPanel = new HistogramView(columnData)
+  }
 }
