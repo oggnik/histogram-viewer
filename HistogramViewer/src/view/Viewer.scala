@@ -53,8 +53,9 @@ class Viewer extends JFrame {
     contentPane.add(tableScrollPane, BorderLayout.CENTER)
     
     val columnData = loadedData.map(line => line(column))
-    val histogramPanel = new HistogramView(columnData)
-    val statPanel = new StatView(columnData)
+    val doubleData = columnData.filter(value => try { Some(value.toDouble); true } catch { case _ => false }).map(value => value.toDouble)
+    val histogramPanel = new HistogramView(doubleData)
+    val statPanel = new StatView(doubleData)
     
     contentPane.add(statPanel, BorderLayout.EAST)
     revalidate()

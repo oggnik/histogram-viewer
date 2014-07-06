@@ -1,20 +1,28 @@
 package view
 
-import javax.swing.JPanel
-import javax.swing.JLabel
-import java.awt.FlowLayout
 import java.awt.GridLayout
 
-class StatView(data: List[String]) extends JPanel {
-  val max = data.maxBy(num => num.toInt).toInt
-  /*
-   * Start GUI Creation
-   */
-  setLayout(new GridLayout(0, 1, 10, 5))
-  val maxLabel = new JLabel("Max: " + max)
-  
-  add(maxLabel)
-  /*
-   * End GUI Creation
-   */
+import javax.swing.JLabel
+import javax.swing.JPanel
+
+class StatView(data: List[Double]) extends JPanel {
+  if (data.length != 0) {
+    val max = data.max
+    val min = data.min
+    val average = (data.sum) / data.length
+    /*
+     * Start GUI Creation
+     */
+    setLayout(new GridLayout(0, 1, 10, 5))
+    val maxLabel = new JLabel("Max: " + max)
+    val minLabel = new JLabel("Min: " + min)
+    val avgLabel = new JLabel("Average: " + average)
+
+    add(maxLabel)
+    add(minLabel)
+    add(avgLabel)
+    /*
+     * End GUI Creation
+     */
+  }
 }
