@@ -12,6 +12,7 @@ class Viewer extends JFrame {
   
   private var loadedData: List[Array[String]] = null
   private var table: TableView = null
+  private var stat: StatView = null
   
   /*
    * Start GUI Creation
@@ -46,18 +47,16 @@ class Viewer extends JFrame {
   
   def chooseColumn(column: Integer): Unit = {
     println("Choosing Column: " + column)
-    contentPane.removeAll()
-    contentPane.add(toolbar, BorderLayout.NORTH)
-    val tableScrollPane = new JScrollPane(table)
-    tableScrollPane.setPreferredSize(new Dimension(600, 500))
-    contentPane.add(tableScrollPane, BorderLayout.CENTER)
+    if (stat != null) {
+      contentPane.remove(stat);
+    }
     
     val columnData = loadedData.map(line => line(column))
     val doubleData = columnData.filter(value => try { Some(value.toDouble); true } catch { case _ => false }).map(value => value.toDouble)
     val histogramPanel = new HistogramView(doubleData)
-    val statPanel = new StatView(doubleData)
+    stat = new StatView(doubleData)
     
-    contentPane.add(statPanel, BorderLayout.EAST)
+    contentPane.add(stat, BorderLayout.EAST)
     revalidate()
     repaint()
   }
