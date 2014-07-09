@@ -8,4 +8,7 @@ Create histograms of csv data
   * Main:                     Main method
   * Viewer:                   Display of CSV data
     * Toolbar
+    * Table
+    * StatView
+    * HistogramView
   * Loader:                   Loading of CSV data
