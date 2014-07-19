@@ -7,6 +7,7 @@ import javax.swing.JPanel
 import java.awt.BorderLayout
 import javax.swing.JScrollPane
 import java.awt.Dimension
+import HistogramView.HistogramView
 
 class Viewer extends JFrame {
   
@@ -50,7 +51,5 @@ class Viewer extends JFrame {
     val columnData = loadedData.map(line => line(column))
     val doubleData = columnData.filter(value => try { Some(value.toDouble); true } catch { case _ => false }).map(value => value.toDouble)
     val histogramPanel = new HistogramView(doubleData)
-    revalidate()
-    repaint()
   }
 }
