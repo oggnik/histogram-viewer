@@ -1,4 +1,4 @@
-package HistogramView
+package histogram
 
 import java.awt.BorderLayout
 import javax.swing.JFrame

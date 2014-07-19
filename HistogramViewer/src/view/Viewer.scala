@@ -1,13 +1,14 @@
 package view
 
-import java.io.File
-import javax.swing.JFrame
-import model.Loader
-import javax.swing.JPanel
 import java.awt.BorderLayout
-import javax.swing.JScrollPane
 import java.awt.Dimension
-import HistogramView.HistogramView
+import java.io.File
+
+import histogram.HistogramView
+import javax.swing.JFrame
+import javax.swing.JPanel
+import javax.swing.JScrollPane
+import model.Loader
 
 class Viewer extends JFrame {
   
