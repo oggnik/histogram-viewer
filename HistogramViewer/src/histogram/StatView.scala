@@ -1,4 +1,4 @@
-package view
+package histogram
 
 import java.awt.GridLayout
 import javax.swing.JLabel
