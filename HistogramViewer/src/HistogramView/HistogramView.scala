@@ -1,7 +1,7 @@
 package HistogramView
-import javax.swing.JFrame
+
 import java.awt.BorderLayout
-import HistogramView.StatView
+import javax.swing.JFrame
 
 class HistogramView(data: List[Double]) extends JFrame {
   if (data.length != 0) {
