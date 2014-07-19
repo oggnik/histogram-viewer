@@ -53,7 +53,7 @@ class Toolbar(viewer: Viewer) extends Panel with ActionListener {
       }
     } else if (e.getSource() == chooseCol) {
       if (status == Toolbar.READY) {
-        val column = JOptionPane.showInputDialog(viewer, "Enter Column").toInt
+        val column = JOptionPane.showInputDialog(viewer, "Enter Column").toInt - 1
         viewer.chooseColumn(column)
         setStatus(Toolbar.READY)
       }
